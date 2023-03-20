@@ -1,0 +1,43 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.message-form {
+    /* background-color: aquamarine; */
+    width: 100%;
+    margin-top: auto;
+}
+
+.input-con {
+    border:1px solid gray;
+    width: 600px;
+    display: flex;
+    position: relative;
+
+}
+
+.input {
+    font-size: 1.125rem;
+    border:none;
+    padding: 30px;
+    height: 60px;
+    width: 100%;
+}
+
+.input-con,
+.input {
+    border-radius: 30px;
+}
+.button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 20px;
+    border:none;
+    font-size: 1.1em;
+    width: 30%;
+    height: 40px;
+
+}
+

@@ -1,8 +1,10 @@
 import React from 'react';
 
 const TheirMessage = ({ message }) => {
+
+    const regexp = /[^<p>|</p>]/ig
     return (
-        <div className='their-message'>{message.text}</div>
+        <div className='their-message'>{message.text.match(regexp)}</div>
     );
 };
 
