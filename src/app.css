@@ -2,6 +2,19 @@ body,
 html {
     margin: 0;
     padding: 0;
+    background: linear-gradient(rgb(0, 128, 255), rgb(0, 255, 110));
+    object-fit:cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+}
+html {
+  overflow:   scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
 }
 
 
@@ -9,6 +22,10 @@ html {
     display: grid;
     place-items: center;
     height: 100vh;
-    background: linear-gradient(rgb(0, 128, 255), rgb(0, 255, 110));
+    width: 100%;
+
+}
+.para {
+    width: 20%;
 
 }

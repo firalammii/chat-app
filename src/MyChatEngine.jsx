@@ -4,7 +4,7 @@ import ChatFeed from "./components/ChatFeed";
 
 const MyChatEngine = () => {
     return (
-        <div className='chat-engine'>
+        // <div className='chat-engine-con'>
             <ChatEngine
                 height='100vh'
                 projectID='50549831-8848-4c06-9421-0700fe8d7e83'
@@ -15,7 +15,7 @@ const MyChatEngine = () => {
 
                 renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
             />
-        </div >
+        // </div >
     );
 };
 

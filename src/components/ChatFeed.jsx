@@ -4,37 +4,39 @@ import MyMessage from './messages/MyMessage';
 import TheirMessage from './messages/TheirMessage';
 import './styles.css';
 
-
 const ChatFeed = (props) => {
-    // console.log(props)
-    const { chats, activeChat, messages, userName } = props;
+    // console.log(props);
+    const { chats, activeChat, messages, userName, creds } = props;
     // console.log(chats);
     const chat = chats && chats[activeChat];
-    // console.log(chat.people);
-
+    // console.log(chat)
 
     // console.log(chat && chat.people)
+
     return (
         <div className='chat-feed'>
             <ChatTitle chat={chat} />
             <RenderMessages messages={messages} userName={userName} />
-            {/* <MessageForm /> */}
+            <div className='message-form-margin'></div>
+            <MessageForm creds={creds} chatId={activeChat} />
         </div>
     );
 };
 
+
 const RenderMessages = ({ messages, userName }) => {
 
-    // console.log(messages);
+    console.log(messages);
     const messageKeys = Object.keys(messages);
     // console.log(messageKeys);
 
     return messageKeys.map((key, index) => {
         const message = messages[key];
         // console.log(message);
-        const isMyMassage = messages[key].sender_username === userName;
+        // console.log(userName);
+        const isMyMassage = messages[key].sender.username === userName;
         // console.log(isMyMassage);
-        // console.log(messages[key].text); style={{ width: '100%' }}
+        // console.log(messages[key].text); 
         return (
             <div key={`msg${index}`}>
                 {

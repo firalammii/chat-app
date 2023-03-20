@@ -5,13 +5,24 @@
 
 .message-form {
     /* background-color: aquamarine; */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    /* border:2px solid red; */
+
     width: 100%;
+    /* padding-top: 60px; */
     margin-top: auto;
+
 }
 
 .input-con {
-    border:1px solid gray;
-    width: 600px;
+    /* border:1px solid gray; */
+    /* width: 600px; */
+    width: 100%;
+    align-self: center;
+    justify-self: center;
     display: flex;
     position: relative;
 
@@ -20,7 +31,7 @@
 .input {
     font-size: 1.125rem;
     border:none;
-    padding: 30px;
+    padding: 30px 25% 30px 30px;
     height: 60px;
     width: 100%;
 }
@@ -36,8 +47,10 @@
     border-radius: 20px;
     border:none;
     font-size: 1.1em;
-    width: 30%;
+    width: 20%;
     height: 40px;
+    background-color: rgb(125, 125, 239);
+    color: white;
 
 }
 

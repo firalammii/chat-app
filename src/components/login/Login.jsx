@@ -1,6 +1,9 @@
 
 import axios from 'axios';
-import { useEffect, useRef, useState } from 'react';
+
+import { useEffect, useRef, useState, useContext } from 'react';
+
+import { Context } from '../../ContextProvider';
 import './login.css';
 const Login = () => {
 
@@ -8,6 +11,7 @@ const Login = () => {
     const [pwd, setPwd] = useState('');
     const [error, setError] = useState('');
 
+    const { saveLoggedUser } = useContext(Context);
     const inputRef = useRef(null);
     useEffect(() => {
         inputRef.current.focus();
@@ -16,24 +20,23 @@ const Login = () => {
     async function handleLoginSubmit (e) {
         e.preventDefault();
 
-        //             userName='firalammydewano@gmail.com'
-        //             userSecret='Firalammy@8'
+        //userName='firalammydewano@gmail.com'
+        //userSecret='Firalammy@8'
         const projectID = '50549831-8848-4c06-9421-0700fe8d7e83';
         const authObject = { 'Project-ID': projectID, 'User-Name': username, 'User-Secret': pwd };
 
         try {
-            await axios.get('https://api.chatengine.io/chats', { headers: authObject });
 
+            await axios.get('https://api.chatengine.io/chats', { headers: authObject });
             const fayaChatAppCredentials = {
                 username, pwd
             };
-
-            localStorage.setItem('fayaChatAppCredentials', JSON.stringify(fayaChatAppCredentials));
-
-
-            window.location.reload();
+            saveLoggedUser(username);
+            localStorage.setItem([username], JSON.stringify(fayaChatAppCredentials));
+            // window.location.reload();
             setError('');
-        } catch (err) {
+        } catch (error) {
+            console.log(error)
             setError('Oops, incorrect credentials.');
         }
 
@@ -63,7 +66,7 @@ const Login = () => {
                     />
 
                     <button className='login-input'> Login </button>
-                    <h2>{error}</h2>
+                    <h2 className='error'>{error}</h2>
                 </div>
 
             </form>
