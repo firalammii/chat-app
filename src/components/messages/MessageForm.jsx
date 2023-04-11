@@ -10,7 +10,10 @@ const MessageForm = ({ creds, chatId }) => {
     });
     function handleSendMessage (e) {
         e.preventDefault();
-        sendMessage(creds, chatId, { text });
+
+        const msg = text.trim();
+        if (msg.length > 0)
+            sendMessage(creds, chatId, { text });
         setText('');
     }
 
